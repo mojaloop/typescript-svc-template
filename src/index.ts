@@ -18,14 +18,11 @@
  * Gates Foundation
  - Name Surname <name.surname@gatesfoundation.com>
 
- - Shashikant Hirugade <shashikant.hirugade@modusbox.com>
-
  --------------
  ******/
 
 'use strict'
 
+import Template from 'Template'
 
-import metrics = require('./metrics')
-export = new metrics.Metrics()
-
+export default new Template()

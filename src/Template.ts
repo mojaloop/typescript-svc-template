@@ -18,45 +18,9 @@
  * Gates Foundation
  - Name Surname <name.surname@gatesfoundation.com>
 
- - Pedro Barreto <pedrob@crosslaketech.com>
- - Rajiv Mothilal <rajivmothilal@gmail.com>
- - Miguel de Barros <miguel.debarros@modusbox.com>
- - Shashikant Hirugade <shashikant.hirugade@modusbox.com>
-
  --------------
  ******/
-import client = require('prom-client');
-/**
- * Type that represents the options that are required for setup
- */
-declare type metricOptionsType = {
-    timeout: number;
-    prefix: string;
-    defaultLabels?: Map<string, string>;
-};
-/** Wrapper class for prom-client. */
-declare class Metrics {
-    /** To make sure the setup is run only once */
-    private _alreadySetup;
-    /** Object containing the histogram values */
-    private _histograms;
-    /** The options passed to the setup */
-    private _options;
-    /**
-     * Setup the prom client for collecting metrics using the options passed
-     */
-    setup: (options: metricOptionsType) => boolean;
-    /**
-     * Get the histogram values for given name
-     */
-    getHistogram: (name: string, help?: string | undefined, labelNames?: string[] | undefined, buckets?: number[]) => client.Histogram;
-    /**
-     * Get the metrics
-     */
-    getMetricsForPrometheus: () => string;
-    /**
-     * Get the options that are used to setup the prom-client
-     */
-    getOptions: () => metricOptionsType;
-}
-export { Metrics, metricOptionsType };
+
+'use strict'
+
+export default class Template {}
