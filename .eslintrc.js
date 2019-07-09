@@ -10,13 +10,15 @@ module.exports = {
     sourceType: 'module',  // Allows for the use of imports
   },
   rules: {
-    accessibility: 0,
-  }
+    "@typescript-eslint/no-explicit-any": 'off'
+  },
+  overrides: [
+    {
+      // Disable some rules that we abuse in unit tests.
+      files: ['test/**/*.ts'],
+      rules: {
+        '@typescript-eslint/explicit-function-return-type': 'off',
+      },
+    },
+  ],
 };
-
-
-// module.exports = {
-//   parser: '@typescript-eslint/parser',
-//   plugins: ['@typescript-eslint'],
-//   extends: ['plugin:@typescript-eslint/recommended'],
-// }
