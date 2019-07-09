@@ -8,19 +8,18 @@
 
 A project template for new mojaloop services and libraries that uses Typescript.
 
-## Installation
-
-```bash
-npm install @mojaloop/<repo-name>
-```
-
 ## Setup
 
+This project provides a decent starting point for a new mojaloop library using typescript.
+
 <!-- TODO: add setup steps for this repo -->
-
-## Next Steps
-
-<!-- TODO: add setup steps for non code-related setup -->
-- Repo configuration
-- Branch rules?
+1. Go to https://github.com/new to create a new repo
+2. Select the "mojaloop/template-typescript-public" template
+3. Find and replace all instances of `<repo-name>` globally across the whole project with your new project's name 
+4. Update the package name and version to match in `package.json`:
+```json
+  "name": "@mojaloop/repo-name",
+  "version": "0.1.0", 
+  ...
+```
 
