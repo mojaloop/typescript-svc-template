@@ -16,8 +16,11 @@ npm install @mojaloop/<repo-name>
 
 ## Setup
 
-
+<!-- TODO: add setup steps for this repo -->
 
 ## Next Steps
 
+<!-- TODO: add setup steps for non code-related setup -->
 - Repo configuration
+- Branch rules?
+
