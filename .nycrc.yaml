@@ -1,0 +1,14 @@
+include:
+  - "src/**/*.ts"
+  - "test/**/*.test.ts"
+extension:
+  - .ts
+require:
+  - ts-node/register
+exclude:
+  - "**/*.d.ts"
+reporter:
+  - text-summary
+  - lcov
+  - json
+all: true
