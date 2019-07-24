@@ -1,14 +1,17 @@
+extends: "@istanbuljs/nyc-config-typescript"
+all: true
+check-coverage: true
+per-file: true
+temp-directory: "./.nyc_output"
+lines: 90
+statements: 90
+functions: 90
+branches: 90
 include:
   - "src/**/*.ts"
-  - "test/**/*.test.ts"
-extension:
-  - .ts
 require:
   - ts-node/register
-exclude:
-  - "**/*.d.ts"
 reporter:
   - text-summary
   - lcov
   - json
-all: true
