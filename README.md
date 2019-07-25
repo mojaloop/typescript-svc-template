@@ -5,7 +5,6 @@
 [![NPM Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@mojaloop/<repo-name>.svg?style=flat)](https://www.npmjs.com/package/@mojaloop/<repo-name>)
 [![CircleCI](https://circleci.com/gh/mojaloop/<repo-name>.svg?style=svg)](https://circleci.com/gh/mojaloop/<repo-name>)
 
-
 A project template for new mojaloop services and libraries that uses Typescript.
 
 ## Setup
@@ -22,4 +21,21 @@ This project provides a decent starting point for a new mojaloop library using t
   "version": "0.1.0", 
   ...
 ```
+
+5. Copy the necessary circle ci config from the templates.
+
+If the project is a **Library**:
+
+```bash
+cp ./.circleci/config.example.library.yml ./.circleci/config.yml
+rm -f ./.circleci/config.example.*
+```
+
+If the project is a **Service**:
+
+```bash
+cp ./.circleci/config.example.service.yml ./.circleci/config.yml
+rm -f ./.circleci/config.example.*
+```
+
 
