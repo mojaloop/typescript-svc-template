@@ -23,6 +23,6 @@
 
 'use strict'
 
-import Template from 'Template'
+import Template from './Template'
 
 export default new Template()
