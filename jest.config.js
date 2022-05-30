@@ -1,8 +1,6 @@
 module.exports = {
   displayName: 'tsc',
-  testMatch: [
-    '**/test/unit/**/*.test.ts'
-  ],
+  testMatch: [],
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
