@@ -21,7 +21,7 @@
  --------------
  ******/
 
-// import 'source-map-support/register'
+import 'source-map-support/register'
 import { MathLib } from './lib/math'
 
 /* Instructions
