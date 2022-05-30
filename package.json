@@ -7,9 +7,9 @@
     "url": "git+https://github.com/mojaloop/<repo-name>.git"
   },
   "keywords": [
-    "metrics",
-    "central",
-    "services"
+    "mojaloop",
+    "services",
+    "<repo-name>"
   ],
   "author": "lewisdaly",
   "contributors": [
