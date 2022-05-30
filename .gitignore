@@ -73,3 +73,10 @@ docs/
 .idea/**
 **/*.iml
 
+# https://devspace.sh/
+devspace*
+.devspace/**.*
+
+# Add Ignores
+*IGNORE*
+*ignore*

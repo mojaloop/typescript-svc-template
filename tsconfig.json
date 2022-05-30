@@ -10,7 +10,7 @@
     "coverage"
   ],
   "compilerOptions": {
-    "target": "es2018",
+    "target": "es2021",
     "module": "commonjs",
     "lib": [
       "esnext"

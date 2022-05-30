@@ -18,30 +18,32 @@
  * Gates Foundation
  - Name Surname <name.surname@gatesfoundation.com>
 
- * Lewis Daly <lewis@vesselstech.com>
-
  --------------
  ******/
 
-'use strict'
+/* Example
+ * 
+ * This is an example Jest test for the MathLib example module.
+ * 
+ */
 
-import Template from '../../src/Template'
-const Test = require('tapes')(require('tape'))
+import { expect } from "chai";
+import MathLib from "../../src/index";
 
-Test('Template Test', (exampleTest: any): void => {
-  exampleTest.test('Adds two numbers together', (test: any): void => {
-    // Arrange
-    const input1 = 10
-    const input2 = 20
-    const expected = 30
-
-    // Act
-    const result = Template.add(input1, input2)
-
-    //Assert
-    test.ok(result, expected, 'Result matches expectation')
-    test.end()
+describe ('MathLib', () => {
+  describe("test add function", () => {
+    it("should return 15 for add(10,5)", () => {
+      expect(MathLib.add(10, 5)).to.equal(15)
+    })
+  
+    it("should return 5 for add(2,3)", () => {
+      expect(MathLib.add(2, 3)).to.equal(5)
+    })
   })
 
-  exampleTest.end()
+  describe("test mul function", () => {
+    it("should return 15 for mul(3,5)", () => {
+      expect(MathLib.mul(3, 5)).to.equal(15)
+    })
+  })
 })

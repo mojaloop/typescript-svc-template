@@ -21,10 +21,18 @@
  --------------
  ******/
 
-'use strict'
+/* Example
+ * 
+ * This is an example module that is exported.
+ * 
+ */
 
-export default class Template {
-  public static add(num1: number, num2: number): number {
-    return num1 + num2
-  }
+export const MathLib = {
+    add: (x: number, y: number): number => {
+        return x + y;
+    },
+    // Comment
+    mul: (x: number, y: number): number => {
+        return x * y;
+    },
 }
