@@ -10,7 +10,7 @@ WORKDIR /opt/app
 COPY tsconfig.json package.json package-lock.json /opt/app/
 COPY src /opt/app/src
 
-RUN npm install
+RUN npm ci
 
 ## Build the app
 RUN npm run build
