@@ -1,28 +1,43 @@
 module.exports = {
-  parser: '@typescript-eslint/parser', // Specifies the ESLint parser
   extends: [
-    'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
-    // Enforces ES6+ import/export syntax
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
-    'prettier'
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
   ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
-    sourceType: 'module' // Allows for the use of imports
+    ecmaVersion: 2022,
+    sourceType: 'module',
+    // project: 'tsconfig.json',
   },
+  plugins: [
+    '@typescript-eslint'
+  ],
   rules: {
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-var-requires': 'off'
+    '@typescript-eslint/no-explicit-any': 'error',
+    'no-console': 'error',
+    'quote-props': ['error', 'as-needed'],
+    quotes: ['error', 'single', { allowTemplateLiterals: false }],
+    indent: ['error', 2, { SwitchCase: 1 }],
+    semi: ['error'],
+  },
+  env: {
+    node: true,
+    jest: true,
   },
   overrides: [
     {
-      // Disable some rules that we abuse in unit tests.
       files: ['test/**/*.ts'],
+      env: {
+        jest: true,
+      },
       rules: {
-        '@typescript-eslint/explicit-function-return-type': 'off'
-      }
-    }
-  ]
-}
+        // add here any rules specific to test files
+      },
+    },
+    {
+      extends: ['plugin:@typescript-eslint/disable-type-checked'],
+      files: ['./**/*.js'],
+    },
+  ],
+};
