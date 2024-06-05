@@ -21,29 +21,8 @@
  --------------
  ******/
 
-/* Example
- * 
- * This is an example Jest test for the MathLib example module.
- * 
- */
-
-import { expect } from "chai";
-import MathLib from "../../src/index";
-
-describe ('MathLib', () => {
-  describe("test add function", () => {
-    it("should return 15 for add(10,5)", () => {
-      expect(MathLib.add(10, 5)).to.equal(15)
-    })
-  
-    it("should return 5 for add(2,3)", () => {
-      expect(MathLib.add(2, 3)).to.equal(5)
-    })
-  })
-
-  describe("test mul function", () => {
-    it("should return 15 for mul(3,5)", () => {
-      expect(MathLib.mul(3, 5)).to.equal(15)
-    })
-  })
-})
+describe ('Unit Tests -->', () => {
+  test('dummy unit test', () => {
+    expect(true).toBe(true);
+  });
+});

@@ -1,14 +1,21 @@
-## *Builder*
-FROM node:16.15.0-alpine as builder
+ARG NODE_VERSION=lts-alpine
 
-RUN apk add --no-cache git python3 build-base
+# NOTE: Ensure you set NODE_VERSION Build Argument as follows...
+#
+#  export NODE_VERSION="$(cat .nvmrc)-alpine" \
+#  docker build \
+#    --build-arg NODE_VERSION=$NODE_VERSION \
+#    -t mojaloop/repo-name:local \
+#    . \
+#
 
-## Create app directory
+FROM node:${NODE_VERSION} as builder
+#RUN apk add --no-cache git python3 build-base
 WORKDIR /opt/app
 
 ## Copy basic files for installing dependencies
-COPY tsconfig.json package.json package-lock.json /opt/app/
-COPY src /opt/app/src
+COPY tsconfig.json package*.json ./
+COPY src ./src
 
 RUN npm ci
 
@@ -16,19 +23,21 @@ RUN npm ci
 RUN npm run build
 
 ## *Application*
-FROM node:16.15.0-alpine
-
-RUN apk add --no-cache git python3 g++ make
+FROM node:${NODE_VERSION}
+#RUN apk add --no-cache git python3 g++ make
 WORKDIR /opt/app
 
-COPY package.json package-lock.json* /opt/app/
+COPY package*.json ./
+RUN npm ci --omit=dev
 
-RUN npm ci --production
+# Create a non-root user: ml-user
+RUN adduser -D ml-user
+USER ml-user
 
 ## Copy of dist directory from builder
-COPY --from=builder /opt/app/dist ./dist
+COPY --chown=ml-user --from=builder /opt/app/dist ./dist
 
 ## Expose any application ports
 # EXPOSE <PORT>
 
-CMD [ "npm" , "start" ]
+CMD [ "node" , "./dist/index.js" ]
